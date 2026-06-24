@@ -14,7 +14,11 @@
 * ☑ GitHub Push/Pull Workflow
 * ☑ Virtual Environment Setup
 * ☑ README.md Creation
-* ☑ ROADMAP.md Creation
+* ☑ ROADMAP.md Creation 
+* ☑ Notion Workspace Setup
+* ☑ Streamlit Installation
+* ☑ First Streamlit Application
+* ☑ requirements.txt Creation
 
 ### Learned
 
@@ -24,19 +28,32 @@
 * Git add, commit, push, and pull operations
 * Staging Area concept
 * Virtual environments and dependency isolation
-* Importance of project documentation
+* Importance of project documentation 
+* What Streamlit is and why we use it
+* Difference between terminal applications and web applications
+* Basic Streamlit components (title, header, write, success)
+* Interactive widgets (button, text_input)
+* Input validation basics
+* What pip is and how package management works
+* What dependencies are
+* Purpose of requirements.txt
+* How pip freeze works
 
 ### Challenges Faced
 
 * Initial Git terminology confusion
-* Understanding remote repositories and GitHub synchronization
+* Understanding remote repositories and GitHub synchronization 
+* Confusion around multiple virtual environments (.venv vs venv)
+* Understanding how Streamlit reruns scripts after user interactions
 
 ### Next Steps
 
 * [x] Create PROGRESS.md
-* [ ] Understand requirements.txt
-* [ ] Define project workflow
-* [ ] Create Notion workspace
+* [x] Understand requirements.txt
+* [x] Create Notion workspace
+* [x] Build first Streamlit application
+* [ ] Learn Streamlit layouts and components
+* [ ] Start Speech-to-Text module planning
 
 ---
 
