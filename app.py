@@ -1,3 +1,4 @@
+import tempfile
 import os
 
 # Point Windows to the CUDA libraries installed via pip, so they load
@@ -134,14 +135,17 @@ with tab_record:
 
 # ---------- Transcription ----------
 if audio_source is not None:
-    with open("temp_audio.wav", "wb") as f:
-        f.write(audio_source.getbuffer())
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_file:
+        temp_file.write(audio_source.getbuffer())
+        temp_audio_path = temp_file.name
 
     st.audio(audio_source)
 
     with st.spinner("Transcribing consultation..."):
-        segments, info = model.transcribe("temp_audio.wav")
+        segments, info = model.transcribe(temp_audio_path)
         segments = list(segments)
+
+    os.remove(temp_audio_path)
 
     st.markdown('<p class="section-label">Transcript</p>', unsafe_allow_html=True)
 
