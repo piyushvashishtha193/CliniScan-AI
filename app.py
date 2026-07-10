@@ -155,4 +155,4 @@ if audio_source is not None:
             <span class="transcript-time">{segment.start:.1f}s – {segment.end:.1f}s</span>
             <span class="transcript-text">{segment.text}</span>
         </div>
-        """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True) 
