@@ -80,17 +80,54 @@ def generate_clinical_summary(transcript: str) -> str:
     """
 
     prompt = f"""
-You are an AI clinical assistant.
+You are an AI clinical documentation assistant.
 
-Generate a concise clinical summary.
+Your task is to generate a concise, accurate clinical summary from the consultation transcript.
 
-Rules:
-- Use professional medical language.
-- Do not invent symptoms.
-- Do not infer diagnoses.
-- Mention only information present in the transcript.
-- Keep the summary concise.
-- Use bullet points where appropriate.
+Instructions:
+- Use only the information present in the transcript.
+- Do NOT invent symptoms, diagnoses, medications, or treatment plans.
+- Do NOT make assumptions.
+- Use professional clinical language.
+- Keep the summary concise and well organized.
+
+Return the output in the following format:
+
+# Clinical Summary
+
+## Chief Complaint
+- ...
+
+## History of Present Illness
+- ...
+
+## Pertinent Positives
+- ...
+
+## Pertinent Negatives
+- ...
+
+## Past Medical History
+- ...
+
+## Medications
+- ...
+
+## Allergies
+- ...
+
+## Social History
+- ...
+
+## Family History
+- ...
+
+## Clinical Impression
+- Summarize the patient's presentation only.
+- Do NOT provide a diagnosis.
+
+## Disclaimer
+This summary is AI-generated and intended for clinician review only.
 
 Transcript:
 {transcript}

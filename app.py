@@ -1,5 +1,6 @@
 import tempfile
 import os
+from app.services.gemini import generate_clinical_summary
 
 # Point Windows to the CUDA libraries installed via pip, so they load
 # every time this script runs — no manual PATH setup needed anymore.
@@ -145,14 +146,43 @@ if audio_source is not None:
         segments, info = model.transcribe(temp_audio_path)
         segments = list(segments)
 
+    # Create one complete transcript for Gemini
+    full_transcript = " ".join(
+        segment.text.strip()
+        for segment in segments
+    )
+
+    # Generate AI clinical summary
+    with st.spinner("Generating clinical summary..."):
+        clinical_summary = generate_clinical_summary(full_transcript)
+
     os.remove(temp_audio_path)
 
-    st.markdown('<p class="section-label">Transcript</p>', unsafe_allow_html=True)
+    # Display transcript
+    st.markdown(
+        '<p class="section-label">Transcript</p>',
+        unsafe_allow_html=True
+    )
 
     for segment in segments:
-        st.markdown(f"""
-        <div class="transcript-card">
-            <span class="transcript-time">{segment.start:.1f}s – {segment.end:.1f}s</span>
-            <span class="transcript-text">{segment.text}</span>
-        </div>
-        """, unsafe_allow_html=True) 
+        st.markdown(
+            f"""
+            <div class="transcript-card">
+                <span class="transcript-time">
+                    {segment.start:.1f}s – {segment.end:.1f}s
+                </span>
+                <span class="transcript-text">
+                    {segment.text}
+                </span>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Display AI summary
+    st.markdown(
+        '<p class="section-label">Clinical Summary</p>',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(clinical_summary)
