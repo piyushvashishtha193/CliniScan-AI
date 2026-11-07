@@ -1,104 +1,22 @@
-# CliniScan AI Progress Log
+# CliniScan AI: Progress Log
 
-## Project Foundation Phase
-
-### Status
-
-◐ In Progress
-
-### Completed
-
-* ☑ Git Fundamentals
-* ☑ GitHub Repository Setup
-* ☑ Local Repository Setup
-* ☑ GitHub Push/Pull Workflow
-* ☑ Virtual Environment Setup
-* ☑ README.md Creation
-* ☑ ROADMAP.md Creation 
-* ☑ Notion Workspace Setup
-* ☑ Streamlit Installation
-* ☑ First Streamlit Application
-* ☑ requirements.txt Creation
-
-### Learned
-
-* What version control is and why it is important
-* Difference between Git and GitHub
-* Repository structure and workflow
-* Git add, commit, push, and pull operations
-* Staging Area concept
-* Virtual environments and dependency isolation
-* Importance of project documentation 
-* What Streamlit is and why we use it
-* Difference between terminal applications and web applications
-* Basic Streamlit components (title, header, write, success)
-* Interactive widgets (button, text_input)
-* Input validation basics
-* What pip is and how package management works
-* What dependencies are
-* Purpose of requirements.txt
-* How pip freeze works
-
-### Challenges Faced
-
-* Initial Git terminology confusion
-* Understanding remote repositories and GitHub synchronization 
-* Confusion around multiple virtual environments (.venv vs venv)
-* Understanding how Streamlit reruns scripts after user interactions
-
-### Next Steps
-
-* [x] Create PROGRESS.md
-* [x] Understand requirements.txt
-* [x] Create Notion workspace
-* [x] Build first Streamlit application
-* [ ] Learn Streamlit layouts and components
-* [ ] Start Speech-to-Text module planning
+Short, dated record of what got done. The plan lives in [MASTER_CONTEXT.md](MASTER_CONTEXT.md).
 
 ---
 
-## Speech-to-Text Module
+### Nov 2026
+- Final scope locked in `MASTER_CONTEXT.md`: multilingual clinical scribe with diarization, PHI redaction, SOAP JSON, report RAG, evaluation, FastAPI, Docker, CI and tracing
+- Cut out of scope: disease prediction, XGBoost/LIME, mental-health forms, patient timeline
+- Old `ROADMAP.md` removed
 
-Status: ☐ Not Started
+### Jul 2026
+- Gemini service (`app/services/gemini.py`) wired into the app: transcript → structured clinical summary
+- Diarization service started: PyAnnote Community-1 pipeline loader
+- Secure config via `.env` + `python-dotenv` (`app/utils/config.py`)
+- Faster-Whisper on GPU (CUDA, int8_float16) with timestamped transcript
+- Fixed the Windows CUDA DLL path issue for cuBLAS/cuDNN
+- Audio upload + live recording in Streamlit, using temp-file handling
 
----
-
-## Clinical Note Generation
-
-Status: ☐ Not Started
-
----
-
-## Medical Report Intelligence
-
-Status: ☐ Not Started
-
----
-
-## Mental Health Assessment
-
-Status: ☐ Not Started
-
----
-
-## Patient Timeline
-
-Status: ☐ Not Started
-
----
-
-## Disease Risk Prediction
-
-Status: ☐ Not Started
-
----
-
-## Explainable AI
-
-Status: ☐ Not Started
-
----
-
-## Deployment
-
-Status: ☐ Not Started
+### Jun 2026
+- Repo, Git/GitHub workflow, virtual environment, README, licence
+- First Streamlit app with a custom theme and clinical UI
